@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12001f">
+
+<title>Happy Birthday Nermeen 🌸</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:Georgia,serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 50% 20%,#a82cff 0%,#4b126f 30%,#160326 65%,#050008 100%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(255,0,153,.18),
+      rgba(0,229,255,.16),
+      rgba(255,220,0,.14),
+      rgba(150,0,255,.18),
+      rgba(255,0,153,.18)
+    );
+  animation:aurora 12s linear infinite;
+  z-index:0;
+}
+
+@keyframes aurora{
+  to{transform:rotate(360deg)}
+}
+
+#stars,
+#flowers,
+#hearts,
+#fireworks{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+
+#stars{z-index:1}
+#flowers{z-index:8}
+#hearts{z-index:7}
+#fireworks{z-index:9}
+
+.star{
+  position:absolute;
+  color:#fff;
+  text-shadow:0 0 12px #fff;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{
+    opacity:.15;
+    transform:scale(.5);
+  }
+  to{
+    opacity:1;
+    transform:scale(1.5);
+  }
+}
+
+.flower{
+  position:absolute;
+  top:-70px;
+  font-size:28px;
+  animation:fall linear forwards;
+  filter:drop-shadow(0 0 8px rgba(255,170,230,.8));
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-70px) rotate(0deg);
+    opacity:0;
+  }
+  10%{opacity:1}
+  100%{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:.9;
+  }
+}
+
+.heart{
+  position:absolute;
+  bottom:-60px;
+  font-size:25px;
+  animation:heartUp linear forwards;
+  filter:drop-shadow(0 0 10px rgba(255,70,180,.9));
+}
+
+@keyframes heartUp{
+  0%{
+    transform:translateY(0) scale(.4);
+    opacity:0;
+  }
+  15%{opacity:1}
+  100%{
+    transform:translateY(-115vh) scale(1.4) rotate(25deg);
+    opacity:0;
+  }
+}
+
+.main{
+  position:relative;
+  z-index:5;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:18px;
+}
+
+.card{
+  width:min(94vw,650px);
+  max-height:90vh;
+  overflow:auto;
+  padding:34px 22px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:34px;
+  background:rgba(255,255,255,.09);
+  backdrop-filter:blur(18px);
+  box-shadow:
+    0 0 80px rgba(255,0,190,.28),
+    inset 0 0 50px rgba(255,255,255,.05);
+}
+
+.intro{
+  animation:cardIn 1.2s ease;
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:scale(.75) translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+.gift{
+  font-size:78px;
+  animation:gift 2s ease-in-out infinite;
+}
+
+@keyframes gift{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-12px) rotate(3deg)}
+}
+
+h1{
+  font-size:clamp(34px,9vw,64px);
+  margin:18px 0 12px;
+  line-height:1.05;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #ff4bd8,
+    0 0 45px #9b2cff;
+}
+
+.subtitle{
+  font-size:18px;
+  opacity:.8;
+  margin-bottom:28px;
+}
+
+.openBtn{
+  border:0;
+  border-radius:999px;
+  padding:16px 28px;
+  font-size:17px;
+  font-weight:bold;
+  color:#fff;
+  background:linear-gradient(90deg,#ff1493,#9b2cff,#00c8ff);
+  box-shadow:
+    0 0 20px rgba(255,20,147,.6),
+    0 0 45px rgba(155,44,255,.4);
+  cursor:pointer;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.06);
+    box-shadow:
+      0 0 30px rgba(255,20,147,.9),
+      0 0 60px rgba(0,200,255,.5);
+  }
+}
+
+.hidden{
+  display:none!important;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+<div id="flowers"></div>
+<div id="hearts"></div>
+<div id="fireworks"></div>
+
+<div class="main">
+
+  <div class="card intro" id="intro">
+
+    <div class="gift">🎁</div>
+
+    <h1>A Little Surprise</h1>
+
+    <p class="subtitle">
+      Something beautiful is waiting for you ✨
+    </p>
+
+    <button class="openBtn" onclick="openSurprise()">
+      OPEN YOUR SURPRISE 💖
+    </button>
+
+  </div>
+
+  <div class="card hidden" id="birthday">
+
+    <div class="gift">🎂</div>
+
+    <p>✨ A very special day for a very special person ✨</p>
+
+    <h1>NERMEEN MANSOUR</h1>
+
+    <h2>🎉 HAPPY BIRTHDAY 🎉</h2>
+
+    <p id="message">
+      May your day be filled with happiness,
+      beautiful moments, endless smiles,
+      and everything your heart wishes for. 💖
+    </p>
+
+  </div>
+
+</div>
+
+<script>
+
+const flowerList = ["🌸","🌺","🌷","🌹","💮","🌼"];
+const heartList = ["💖","💕","💗","💓","💞"];
+const starList = ["✦","✧","⋆","★"];
+
+function createStars(){
+  const box = document.getElementById("stars");
+
+  for(let i = 0; i < 55; i++){
+    const star = document.createElement("div");
+
+    star.className = "star";
+    star.textContent =
+      starList[Math.floor(Math.random()*starList.length)];
+
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+    star.style.fontSize = (8 + Math.random()*13) + "px";
+    star.style.animationDelay = Math.random()*3 + "s";
+
+    box.appendChild(star);
+  }
+}
+
+function createFlower(){
+  const box = document.getElementById("flowers");
+  const flower = document.createElement("div");
+
+  flower.className = "flower";
+  flower.textContent =
+    flowerList[Math.floor(Math.random()*flowerList.length)];
+
+  flower.style.left = Math.random()*100 + "%";
+  flower.style.fontSize = (20 + Math.random()*22) + "px";
+  flower.style.animationDuration =
+    (5 + Math.random()*6) + "s";
+
+  box.appendChild(flower);
+
+  setTimeout(() => flower.remove(),12000);
+}
+
+function createHeart(){
+  const box = document.getElementById("hearts");
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.textContent =
+    heartList[Math.floor(Math.random()*heartList.length)];
+
+  heart.style.left = Math.random()*100 + "%";
+  heart.style.fontSize = (18 + Math.random()*20) + "px";
+  heart.style.animationDuration =
+    (5 + Math.random()*5) + "s";
+
+  box.appendChild(heart);
+
+  setTimeout(() => heart.remove(),11000);
+}
+
+function firework(){
+  const box = document.getElementById("fireworks");
+
+  const x = 15 + Math.random()*70;
+  const y = 15 + Math.random()*45;
+
+  for(let i = 0; i < 24; i++){
+
+    const spark = document.createElement("div");
+
+    spark.style.position = "absolute";
+    spark.style.left = x + "%";
+    spark.style.top = y + "%";
+    spark.style.width = "5px";
+    spark.style.height = "5px";
+    spark.style.borderRadius = "50%";
+    spark.style.background = "white";
+    spark.style.boxShadow =
+      "0 0 12px #fff, 0 0 20px #ff4bd8";
+
+    const angle = (Math.PI * 2 * i) / 24;
+    const distance = 60 + Math.random()*100;
+
+    spark.animate(
+      [
+        {
+          transform:"translate(-50%,-50%) scale(1)",
+          opacity:1
+        },
+        {
+          transform:
+            `translate(
+              ${Math.cos(angle)*distance}px,
+              ${Math.sin(angle)*distance}px
+            ) scale(0)`,
+          opacity:0
+        }
+      ],
+      {
+        duration:900 + Math.random()*500,
+        easing:"cubic-bezier(.1,.7,.3,1)"
+      }
+    );
+
+    box.appendChild(spark);
+
+    setTimeout(() => spark.remove(),1600);
+  }
+}
+
+function startEffects(){
+
+  createStars();
+
+  setInterval(createFlower,450);
+
+  setInterval(createHeart,700);
+
+  setInterval(firework,1800);
+
+  for(let i = 0; i < 12; i++){
+    setTimeout(createFlower,i*180);
+  }
+
+  for(let i = 0; i < 8; i++){
+    setTimeout(createHeart,i*250);
+  }
+}
+
+function openSurprise(){
+
+  document.getElementById("intro")
+    .classList.add("hidden");
+
+  document.getElementById("birthday")
+    .classList.remove("hidden");
+
+  startEffects();
+
+  for(let i = 0; i < 5; i++){
+    setTimeout(firework,i*350);
+  }
+}
+
+createStars();
+
+</script>
+
+</body>
+</html>
+
+<style>
+
+/* Premium readability layer */
+
+#flowers,
+#hearts,
+#fireworks{
+  z-index:2 !important;
+}
+
+.main{
+  z-index:20 !important;
+}
+
+.card{
+  position:relative;
+  z-index:21;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:34px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255,255,255,.12),
+      transparent 55%
+    );
+  pointer-events:none;
+}
+
+.card > *{
+  position:relative;
+  z-index:2;
+}
+
+#birthday h1{
+  font-size:clamp(34px,9vw,58px);
+  letter-spacing:2px;
+  margin:22px 0 18px;
+  line-height:1.08;
+}
+
+#birthday h2{
+  font-size:clamp(24px,6vw,38px);
+  line-height:1.2;
+  margin:10px 0 24px;
+  color:#fff;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 20px #ff4bd8,
+    0 0 35px #9b2cff;
+}
+
+#message{
+  max-width:520px;
+  margin:0 auto;
+  padding:0 8px;
+  font-size:clamp(17px,4.5vw,22px);
+  line-height:1.65;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+
+</style>
+
+<style>
+
+.personal-note{
+  margin-top:26px;
+  padding:20px 16px;
+  border-radius:24px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:
+    inset 0 0 25px rgba(255,120,220,.06),
+    0 0 25px rgba(120,60,255,.12);
+}
+
+.personal-note p{
+  font-size:clamp(16px,4.2vw,20px);
+  line-height:1.65;
+}
+
+.signature{
+  margin-top:18px;
+  font-size:15px;
+  opacity:.75;
+}
+
+</style>
+
+<script>
+
+const personalNote = document.createElement("div");
+
+personalNote.className = "personal-note";
+
+personalNote.innerHTML = `
+  <p>
+    🌸 Nermeen, may this new chapter of your life
+    bring you countless beautiful moments,
+    peaceful days, genuine smiles,
+    and dreams that slowly become reality. 💖
+  </p>
+
+  <p style="margin-top:12px;">
+    No matter how far apart we are,
+    a little birthday wish can travel
+    across the distance. ✨
+  </p>
+
+  <div class="signature">
+    With warm wishes from India 🇮🇳<br>
+    all the way to Algeria 🇩🇿
+  </div>
+`;
+
+document.getElementById("message")
+  .insertAdjacentElement(
+    "afterend",
+    personalNote
+  );
+
+</script>
+
